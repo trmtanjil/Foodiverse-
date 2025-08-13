@@ -1,6 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router'
 import Navbar from '../Componets/Navbar'
+import Orderlist from '../pages/Home/Orderlist/Orderlist'
 
 function RootLayout() {
   return (
@@ -11,8 +12,8 @@ function RootLayout() {
             <div className='col-span-4 w-full'>
                 <Outlet></Outlet>
             </div>
-            <div className='col-span-2 w-full bg-amber-50 h-screen'>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique, magni a?
+            <div className='col-span-2 w-full bg-white h-screen'>
+              <Orderlist></Orderlist>
             </div>
         </div>
     </div>
