@@ -1,7 +1,14 @@
-import React from "react";
+import axios, { Axios } from "axios";
+import React, { useState } from "react";
 import { useForm, useFieldArray, Controller } from "react-hook-form";
+import Swal from "sweetalert2";
 
 export default function AdminCreatePoke() {
+
+
+  const [createpokeimage, setCreatepokeimage] =useState()
+
+
   const { control, register, handleSubmit } = useForm({
     defaultValues: {
       base: [
@@ -174,10 +181,31 @@ extraCondiments: [
   const { fields: extraProteinFields } = useFieldArray({ control, name: "extraProteins" });
   const { fields: extraCrispyFields } = useFieldArray({ control, name: "extraCrispy" });
 
-  const onSubmit = (data) => {
-    console.log("Form Data:", data);
-    // ekhane axios diye server e POST kora jabe
+
+  const imageUpload = async (e) => {
+    const image = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", image);
+
+    const imageUploadUrl = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMAGE_UPLOAD_KEY}`;
+
+    try {
+      const res = await axios.post(imageUploadUrl, formData);
+      setCreatepokeimage(res.data.data.url);
+      Swal.fire("Success", "Image uploaded successfully!", "success");
+    } catch (error) {
+      console.error(error);
+      Swal.fire("Error", "Image upload failed!", "error");
+    }
   };
+
+  const onSubmit = (data) => {
+    console.log("Form Data:", { ...data, image: createpokeimage });
+    Swal.fire("Success", "Form submitted! Check console for data.", "success");
+  };
+
+
+ 
 
   const renderFieldArray = (fields, fieldName) =>
     fields.map((item, index) => (
@@ -199,6 +227,11 @@ extraCondiments: [
     <div className="max-w-4xl mx-auto p-6 bg-white shadow rounded-lg text-black">
       <h1 className="text-2xl font-bold mb-4">Admin Add Food Options</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+         {/* Image Upload */}
+      <div className="mb-4">
+        <label className="block mb-2 font-semibold">Upload Image</label>
+        <input type="file" onChange={imageUpload} className="border p-1 rounded" />
+      </div>
 
         {/* Base */}
         <div>
