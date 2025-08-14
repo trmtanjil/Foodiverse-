@@ -4,8 +4,8 @@ import {
 import RootLayout from "../Layout/RootLayout";
 import Home from "../pages/Home/Home/Home";
 import AdminLayout from "../Layout/AdminLayout";
-import AdminAddFood from "../pages/AdminAddFood/AdminAddFood";
- 
+import AdminCreatePoke from "../pages/AdminAddFood/AdminCreatePoke";
+  
  const router = createBrowserRouter([
   {
     path: "/",
@@ -27,8 +27,8 @@ import AdminAddFood from "../pages/AdminAddFood/AdminAddFood";
     element: <AdminLayout />, 
     children: [
         {
-             path:'adminaddfood',
-             Component:AdminAddFood,
+             path:'AdminCreatePoke',
+             Component:AdminCreatePoke,
         }
     ]
 }

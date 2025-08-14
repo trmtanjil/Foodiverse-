@@ -58,7 +58,7 @@ function AdminDeshBoardLayout() {
             <ul className="space-y-1">
                <li>
                 <NavLink 
-                  to="/adminlayout/adminaddfood"
+                  to="/adminlayout/AdminCreatePoke"
                   className={({isActive}) => 
                     `flex items-center p-3 rounded-lg transition-all ${isActive ? 'bg-blue-700 text-white' : 'hover:bg-blue-700/50'}`
                   }

@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm, useFieldArray, Controller } from "react-hook-form";
 
-export default function AdminAddFood() {
+export default function AdminCreatePoke() {
   const { control, register, handleSubmit } = useForm({
     defaultValues: {
       base: [
