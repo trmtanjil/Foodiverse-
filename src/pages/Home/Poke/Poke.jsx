@@ -10,7 +10,7 @@ function Poke() {
   </div>
   <div className="collapse-content text-sm">
     {/* fetffch data frome server  */}
-    Click the "Sign Up" button in the top right corner and follow the registration process.
+    Click the "Sign Up" button in the tvollow the registration process.
   </div>
 </div>
 
