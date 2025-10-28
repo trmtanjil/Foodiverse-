@@ -1,7 +1,9 @@
 import React from 'react'
+import AdminCreatePoke from '../../AdminAddFood/AdminCreatePoke'
 
 function Hero() {
   return (
+<>
   <div className='relative'>
   <img 
     className='h-[200px] rounded-bl-3xl w-full object-cover object-center' 
@@ -18,7 +20,10 @@ function Hero() {
     </div>
     <p className='text-white font-bold'>foodVerse</p>
   </div>
+ 
 </div>
+ 
+</>
 
   )
 }

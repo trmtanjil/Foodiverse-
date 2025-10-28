@@ -229,7 +229,7 @@ extraCondiments: [
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
          {/* Image Upload */}
       <div className="mb-4">
-        <label className="block mb-2 font-semibold">Upload Image</label>
+        <label className="block  mb-2 font-semibold">Upload Image</label>
         <input type="file" onChange={imageUpload} className="border p-1 rounded" />
       </div>
 
